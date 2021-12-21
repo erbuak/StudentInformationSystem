@@ -1,0 +1,29 @@
+﻿@model List<Contact>
+@{
+    ViewData["Title"] = "Tüm İletişim Bilgileri";
+}
+
+<h1>İletişim Bilgileri</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Adres</th>
+            <th scope="col">İl</th>
+            <th scope="col">İlçe</th>
+            <th scope="col">Email</th>
+            <th scope="col">GSM</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Contact contact in Model)
+        {
+            <tr>
+                <td>@contact.Address</td>
+                <td>@contact.City</td>
+                <td>@contact.District</td>
+                <td>@contact.Email</td>
+                <td>@contact.GSM</td>
+            </tr>
+        }
+    </tbody>
+</table>

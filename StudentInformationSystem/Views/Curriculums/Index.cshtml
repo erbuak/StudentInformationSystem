@@ -1,0 +1,25 @@
+﻿@model List<Curriculum>
+@{
+    ViewData["Title"] = "Tüm Müfredatlar";
+}
+
+<h1>Müfredatlar</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Ad</th>
+            <th scope="col">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Curriculum curriculum in Model)
+        {
+            <tr>
+                <td>@curriculum.Name</td>
+                <td><a asp-controller="Curriculums" asp-action="Edit" asp-route-id="@curriculum.Id">Güncelle</a> |
+                    <a asp-controller="Curriculums" asp-action="CurriculumCourses" asp-route-id="@curriculum.Id">Müfredat Dersleri</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

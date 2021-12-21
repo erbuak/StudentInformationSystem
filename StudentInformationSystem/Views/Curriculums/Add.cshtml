@@ -1,0 +1,23 @@
+﻿@model CurriculumViewModel
+@{
+    ViewData["Title"] = "Müfredat Kaydet";
+}
+@if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+{
+    <div class="alert alert-success">
+        @ViewBag.SuccessMessage
+    </div>
+}
+
+<form class="mb-3" method="post">
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="form-group">
+                <label>Müfredat Adı</label>
+                <input asp-for="Name" type="text" class="form-control" placeholder="Müfredat Adı">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg btn-block mt-3">Kaydet</button>
+</form>

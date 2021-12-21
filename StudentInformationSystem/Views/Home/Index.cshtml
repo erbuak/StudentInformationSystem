@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="alert alert-info">
+        <p>Tüm öğrecilerin listesini <b>"Öğrenci İşlemleri > Tüm Öğrenciler"</b> e tıklayarak görebilirsiniz.</p>
+        <p>Yeni öğrenci kaydını <b>"Öğrenci İşlemleri > Öğrenci Ekle"</b> ye tıklayarak  gerçekleştirebilirsiniz.</p>
+        <p>Öğrenci kimlik ve iletişim bilgilerini <b>"Öğrenci İşlemleri > Tüm Öğrenciler"</b> üzerinden ilgili öğrencinin karşısındaki <b>Düzenle</b> ye tıklayarak görebilir ve düzenleyebilirsiniz.</p>
+        <p>Öğrenciye müfredat ataması veya güncelleme işlemini <b>"Öğrenci İşlemleri > Tüm Öğrenciler"</b> üzerinden ilgili öğrencinin karşısındaki <b>Müfredat Ata</b> ya tıklayarak gerçekleştirebilirsiniz.</p>
+        <p>Öğrencinin ders kayıtlarını <b>"Öğrenci İşlemleri > Tüm Öğrenciler"</b> üzerinden ilgili öğrencinin karşısındaki <b>Öğrenci Ders Kayıtları</b> na tıklayarak görebilir ve ders kayıt iptal işlemini gerçekleştirebilirsiniz.</p>
+        <p>Tüm müfredatların listesini <b>"Müfredat İşlemleri > Tüm Müfredatlar"</b> e tıklayarak görebilirsiniz.</p>
+        <p>Yeni müfredat kaydını <b>"Müfredat İşlemleri > Müfredat Ekle"</b> ye tıklayarak  gerçekleştirebilirsiniz.</p>
+        <p>Müfredat bilgilerini <b>"Müfredat İşlemleri > Tüm Müfredatlar"</b> üzerinden ilgili müfredatın karşısındaki <b>Düzenle</b> ye tıklayarak görebilir ve düzenleyebilirsiniz.</p>
+        <p>Müfredata ders ekleme veya çıkarma işlemini <b>"Müfredat İşlemleri > Tüm Müfredatlar"</b> üzerinden ilgili müfredatın karşısındaki <b>Müfredat Derleri</b> ne tıklayarak gerçekleştirebilirsiniz.</p>
+        <p>Tüm derslerin listesini <b>"Ders İşlemleri > Tüm Dersler"</b> e tıklayarak görebilirsiniz.</p>
+        <p>Yeni ders kaydını <b>"Ders İşlemleri > Ders Ekle"</b> ye tıklayarak  gerçekleştirebilirsiniz.</p>
+        <p>Ders bilgilerini <b>"Ders İşlemleri > Tüm Dersler"</b> üzerinden ilgili dersin karşısındaki <b>Düzenle</b> ye tıklayarak görebilir ve düzenleyebilirsiniz.</p>
+        <p>Tüm kullanıcılar listesini <b>"Diğer Kullanıcılar > Tüm Kullanıcılar"</b> a tıklayarak görebilirsiniz.</p>
+        <p>Tüm kimlikler listesini <b>"Diğer Kullanıcılar > Tüm Kimlikler"</b> e tıklayarak görebilirsiniz.</p>
+        <p>Tüm ileşişim bilgileri listesini <b>"Diğer Kullanıcılar > Tüm İletişim Bilgileri"</b> ne tıklayarak görebilirsiniz.</p>
+    </div>
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            <p class="text-center"><b>Öğrenci Bilgi Sistemine Hoş Geldeniz!</b></p>
+            <p class="text-center">Sitemi admin veya öğrenci girişi yaparak test edebilirsiniz.</p>
+        </div>
+    </div>
+}

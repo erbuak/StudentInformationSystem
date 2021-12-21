@@ -1,0 +1,25 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "Tüm Kullanıcılar";
+}
+
+<h1>Kullanıcılar</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Pozisyon</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (User user in Model)
+        {
+            <tr>
+                <td>@user.Identity.Name</td>
+                <td>@user.Identity.Surname</td>
+                <td>@(user.Type ? "Öğrenci" : "Admin")</td>
+            </tr>
+        }
+    </tbody>
+</table>

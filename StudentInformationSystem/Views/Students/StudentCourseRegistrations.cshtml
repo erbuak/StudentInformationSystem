@@ -1,0 +1,41 @@
+﻿@model StudenCourseRegistrationsViewModel
+@{
+    ViewData["Title"] = "Öğrenci Ders Kayıtları";
+}
+
+<h1>@Model.Student.StudentNumber NOLU ÖĞRENCİNİN ALDIĞI DERSLER</h1>
+
+@if (Model.SelectedCourses.Count < 1)
+{
+    <div class="alert alert-info">
+        <p>Öğrenci hiçbir derse kayıt işlemi gerçekleştirmemiştir.</p>
+    </div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ders Kodu</th>
+                <th scope="col">Ders Adı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Course course in Model.SelectedCourses)
+            {
+                <tr>
+                    <td>@course.Code</td>
+                    <td>@course.Name</td>
+                    <td>
+                        <a asp-controller="Students" asp-action="CancelStudentCourseRegistration" asp-route-studentId="@Model.Student.Id" asp-route-courseId="@course.Id">Ders Kaydını İptal Et</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div class="alert alert-info">
+    <p>Not:</p>
+    <p>Ders kaydının iptal işlemi Admin tarafından yapılır. Ders kayıt işlemi ilgili öğrenci tarafından gerçekleştirilebilir.</p>
+</div>

@@ -1,0 +1,20 @@
+﻿@model CurriculumToStudentViewModel
+@{
+    ViewData["Title"] = "Tüm Öğrenciler";
+}
+@if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+{
+    <div class="alert alert-success">
+        @ViewBag.SuccessMessage
+    </div>
+}
+
+
+<span>@Model.StudentNumber numaralı öğrecinin mevcut müfredatı: @Model.CurrentCurriculumName</span>
+<form method="post">
+    <input asp-for="StudentNumber" type="hidden" />
+    <select id="selectList" name="selectedCurriculum" class="form-control mt-3" asp-items="@(new SelectList(Model.AllCurriculms, nameof(Curriculum.Id), nameof(Curriculum.Name), Model.CurrentCurriculumId))">
+        <option id="unselect" selected hidden>Müfredat Seçin!</option>
+    </select>
+    <button type="submit" class="btn btn-primary btn-block mt-3">Müfredat Ata</button>
+</form>

@@ -1,0 +1,34 @@
+﻿@model Identity
+@{
+    ViewData["Title"] = "Kimlik Bilgilerim";
+}
+
+<h1>Kimlik Bilgilerim</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="form-group">
+            <label>Ad</label>
+            <input asp-for="Name" class="form-control" type="text" readonly>
+        </div>
+        <div class="form-group">
+            <label>Soyad</label>
+            <input asp-for="Surname" class="form-control" type="text" readonly>
+        </div>
+        <div class="form-group">
+            <label>TC Kimlik No</label>
+            <input asp-for="TcNo" class="form-control" type="text" readonly>
+        </div>
+        <div class="form-group">
+            <label>Doğum Yeri</label>
+            <input asp-for="PlaceOfBirth" class="form-control" type="text" readonly>
+        </div>
+        <div class="form-group">
+            <label>Doğum Tarihi</label>
+            <input asp-for="DateOfBirth" class="form-control" type="date" readonly>
+        </div>
+    </div>
+</div>
+
+
+

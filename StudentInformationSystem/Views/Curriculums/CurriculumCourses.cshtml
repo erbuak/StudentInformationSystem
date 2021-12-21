@@ -1,0 +1,57 @@
+﻿@model List<CurriculumCoursesViewModel>
+@{
+    var unselectedCourse = (List<Course>)ViewData["UnselectedCourses"];
+    var curriculumId = ViewData["CurriculumId"];
+    var curriculumName = ViewData["CurriculumName"];
+
+    ViewData["Title"] = curriculumName + " Ders Ekle Çıkar";
+}
+
+<h1>@curriculumName Ders Ekle Çıkar</h1>
+
+@if (Model.Count >= 1)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ders Adı</th>
+                <th scope="col">İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (CurriculumCoursesViewModel curriculumCoursesViewModel in Model)
+            {
+                <tr>
+                    <td>@curriculumCoursesViewModel.CourseName</td>
+                    <td>
+                        <a asp-controller="Curriculums" asp-action="CurriculumCourseDelete" asp-route-curriculumCourseId="@curriculumCoursesViewModel.CirculumCorsesId" asp-route-curriculumId="@curriculumId">Müfredattan Çıkar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        Henüz müfredata hiçbir ders ataması yapılamış!
+    </div>
+}
+
+@if (unselectedCourse.Count >= 1)
+{
+    <div class="row">
+        <div class="col">
+            <form class="mb-3" method="post">
+                <select name="selectedCourse" class="form-control" asp-items="@(new SelectList(unselectedCourse, nameof(Course.Id), nameof(Course.Name)))">
+                </select>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Müfredata Ders Ekle</button>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <p>Tüm dersler müfredata eklidir!</p>
+}
+

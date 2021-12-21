@@ -1,0 +1,66 @@
+﻿@model CourseRegistrationViewModel
+@{
+    ViewData["Title"] = "Ders Kayıt";
+}
+
+@if (Model.SelectedCourse == null && Model.UnselectedCourse == null)
+{
+    <div class="alert alert-info">
+        Ders kayıt işlemini yapabilmeniz için admin kullanıcısının size müfredat ataması gerekmektedir.
+    </div>
+}
+else
+{
+    @if (Model.SelectedCourse.Count >= 1)
+    {
+        <h1>Aldığım Dersler</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Ders Kodu</th>
+                    <th scope="col">Ders Adı</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Course course in Model.SelectedCourse)
+                {
+                    <tr>
+                        <td>@course.Code</td>
+                        <td>@course.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            Henüz hiçbir ders kayıt işlemi gerçekleştirmemişsiniz!
+        </div>
+    }
+
+
+    @if (Model.UnselectedCourse.Count >= 1)
+    {
+        <div class="row">
+            <div class="col">
+                <form class="mb-3" method="post">
+                    <select name="selectedCourse" class="form-control" asp-items="@(new SelectList(Model.UnselectedCourse, nameof(Course.Id), nameof(Course.Name)))">
+                    </select>
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Derse Kayıt Ol!</button>
+                </form>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            Müfredatınızdaki aktif olan tüm dersleri alıyorsunuz!
+        </div>
+    }
+    <div class="alert alert-info">
+        <p>Not:</p>
+        <p>1. Aktif olmayan veya müfredatınızda olmayan derslere ders kaydı yapamazsınız. Derslerin aktiflik durumunu ve müfredat derslerini Admin girişi yaparak değiştirebilirsiniz.</p>
+        <p>2. Derse kayıt işlemi öğrenci tarafından yapılır. İlgili öğrencinin ders kaydının iptal işlemi Admin tarafından gerçekleştirilebilir.</p>
+    </div>
+}

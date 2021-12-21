@@ -1,0 +1,31 @@
+﻿@model List<Student>
+@{
+    ViewData["Title"] = "Tüm Öğrenciler";
+}
+
+<h1>Öğrenciler</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Öğrenci No</th>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Student student in Model)
+        {
+            <tr>
+                <td>@student.StudentNumber</td>
+                <td>@student.Identity.Name</td>
+                <td>@student.Identity.Surname</td>
+                <td>
+                    <a asp-controller="Students" asp-action="Edit" asp-route-id="@student.Identity.Id">Güncelle</a> |
+                    <a asp-controller="Students" asp-action="CurriculumToStudent" asp-route-id="@student.Identity.Id">Müfredat Ata</a> |
+                    <a asp-controller="Students" asp-action="StudentCourseRegistrations" asp-route-id="@student.Identity.Id">Öğrenci Ders Kayıtları</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

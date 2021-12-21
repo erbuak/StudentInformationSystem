@@ -1,0 +1,29 @@
+﻿@model List<Identity>
+@{
+    ViewData["Title"] = "Tüm Kimlik Bilgileri";
+}
+
+<h1>Kimlik Bilgileri</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">TC No</th>
+            <th scope="col">Doğum Yeri</th>
+            <th scope="col">Doğum Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Identity identity in Model)
+        {
+            <tr>
+                <td>@identity.Name</td>
+                <td>@identity.Surname</td>
+                <td>@identity.TcNo</td>
+                <td>@identity.PlaceOfBirth</td>
+                <td>@identity.DateOfBirth.ToString("dd'/'MM'/'yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+﻿@model UserLoginViewModel
+@{
+    ViewData["Title"] = "Giriş Yap";
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.loginFailMessage))
+{
+    <div class="alert alert-danger">
+        @ViewBag.loginFailMessage
+    </div>
+}
+
+<form class="mb-3" method="post">
+    <div class="form-group">
+        <label>Kullanıcı Adı</label>
+        <input asp-for="UserName" type="text" class="form-control" placeholder="Kullanıcı Adı">
+    </div>
+    <div class="form-group">
+        <label>Şifre</label>
+        <input asp-for="Password" type="password" class="form-control" placeholder="Şifre">
+    </div>
+    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+</form>
+
+<hr />
+
+<h2>Örnek Kullanıcılar</h2>
+<h4>Admin</h4>
+<p>
+    Kullanıcı Adı: hasan.ersoy <br />
+    Şifre: Haser1.
+</p>
+<h4>Öğrenciler</h4>
+<p>
+    Kullanıcı Adı: mehmet.yilmaz <br />
+    Şifre: Mehyil6!
+</p>
+<p>
+    Kullanıcı Adı: ahmet.unal <br />
+    Şifre: Ahun23+
+</p>
+<p>
+    Kullanıcı Adı: mustafa.isik <br />
+    Şifre: Musi64%
+</p>
+<p>
+Kullanıcı Adı: ayse.erdogan<br />
+Şifre: Ayer33.
+</p>
+Kullanıcı Adı: fatma.korkmaz <br />
+Şifre: Fatkor12%

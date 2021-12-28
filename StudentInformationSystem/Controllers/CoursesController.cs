@@ -78,8 +78,6 @@ namespace StudentInformationSystem.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Edit(CourseUpdateViewModel courseUpdateViewModel)
         {
-            Course course = _context.Courses.Find(courseUpdateViewModel.Id);
-
             if (_context.Courses.Any(x => x.Id != course.Id && x.Code == courseUpdateViewModel.Code))
             {
                 ViewBag.ErrorMessage = "Bu ders kodu kullanılıyor. Başka bir ders kodu belirleyin.";

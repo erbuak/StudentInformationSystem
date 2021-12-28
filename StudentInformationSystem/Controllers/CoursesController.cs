@@ -86,7 +86,7 @@ namespace StudentInformationSystem.Controllers
 
             if(ModelState.IsValid)
             {
-                course = _context.Courses.FirstOrDefault(x => x.Id == courseUpdateViewModel.Id);
+                Course course = _context.Courses.FirstOrDefault(x => x.Id == courseUpdateViewModel.Id);
 
                 course.Code = courseUpdateViewModel.Code;
                 course.Name = courseUpdateViewModel.Name;
